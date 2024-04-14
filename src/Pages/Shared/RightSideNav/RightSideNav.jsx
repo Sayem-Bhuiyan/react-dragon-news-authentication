@@ -1,15 +1,16 @@
-import { signInWithPopup } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import auth from "../../../firebase/firebase.config";
 import qZone1 from '../../../assets/qZone1.png';
 import qZone2 from '../../../assets/qZone2.png';
 import qZone3 from '../../../assets/qZone3.png';
+import { getAuth } from "firebase/auth";
+import app from "../../../firebase/firebase.config";
 
 
 
 const RightSideNav = () => {
-    const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider()
+    const auth = getAuth(app)
 
     const handleGoogleSignIn = ()=> {
         signInWithPopup(auth, googleProvider)
